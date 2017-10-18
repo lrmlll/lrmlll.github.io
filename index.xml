@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<html>
+<body>
 <meta charset="utf-8">
 <style>
 
@@ -106,3 +108,7 @@ function dragended(d) {
 }
 
 </script>
+    <h1>Hello World</h1>
+    <p>I'm hosted with GitHub Pages.</p>
+</body>
+</html>
