@@ -1,114 +1,211 @@
 <!DOCTYPE html>
-<html>
-<body>
-<meta charset="utf-8">
-<style>
+<html lang="en">
+<head>
+    <title>Ozy
+    </title>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:#bfbfbf">
 
-.links line {
-  stroke: #999;
-  stroke-opacity: 0.6;
-}
+<!--<div class="jumbotron jumbotron-fluid" style="background">-->
+<!--&lt;!&ndash;<div class="col-lg-4">&ndash;&gt;-->
+<!--&lt;!&ndash;<img src="/static/images/4jalCmO.jpg" class="img-rounded">&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Ozymandias</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">The</a></li>
+            <li><a href="#">Night</a></li>
+            <li><a href="#">is</a></li>
+            <li><a href="#">Dark</a></li>
+        </ul>
+    </div>
+</nav>
 
-.nodes circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
+<div class="col-sm-12">
+    <!--<h2>You ain't going nowhere</h2>-->
+    <img style='height: 100%; width: 100%; object-fit: contain' src="/static/images/4jalCmO.jpg"
+         class="img-rounded">
+</div>
 
-text {
-  font-family: sans-serif;
-  font-size: 10px;
-}
+<div class="container col-lg-10">
+    <div class="row">
+        <div class="container">
+        </div>
 
-</style>
-<svg width="960" height="600"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script>
+        <div class="col-sm-6">
+            <h3>Humans are dangerous</h3>
+            <p>They do what you tell not to</p>
+            <p><br/><br/>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseleft"
+                        aria-expanded="false" aria-controls="collapseleft">
+                    DO NOT PRESS
+                </button>
+                <div id="collapseleft" class="collapse">
+            <p></p>
+        </div>
 
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
+        </p>
 
-var color = d3.scaleOrdinal(d3.schemeCategory20);
+    </div>
 
-var simulation = d3.forceSimulation()
-    .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())
-    .force("center", d3.forceCenter(width / 2, height / 2));
+    <div class="col-sm-4">
+        <h3>Python Pilgrim</h3>
+        <code class="navbar-inverse">import antigravity</code>
 
-d3.json("miserables.json", function(error, graph) {
-  if (error) throw error;
+        <p><br/><br/>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                    aria-expanded="false" aria-controls="collapseExample">
+                python -m 'import antigravity'
+            </button>
+        <div id="collapseExample" class="collapse"><img src="https://imgs.xkcd.com/comics/python.png"/></div>
 
-  var link = svg.append("g")
-      .attr("class", "links")
-    .selectAll("line")
-    .data(graph.links)
-    .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+        </p>
+    </div>
+</div>
 
-  var node = svg.append("g")
-      .attr("class", "nodes")
-    .selectAll("g")
-    .data(graph.nodes)
-    .enter().append("g")
+<hr>
+<!-- Page Content -->
+<div class="container">
 
-  var circles = node.append("circle")
-      .attr("r", 5)
-      .attr("fill", function(d) { return color(d.group); })
-      .call(d3.drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended));
+    <div class="row">
 
-  var lables = node.append("text")
-      .text(function(d) {
-        return d.id;
-      })
-      .attr('x', 6)
-      .attr('y', 3);
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
 
-  node.append("title")
-      .text(function(d) { return d.id; });
+            <!-- Title -->
+            <h2 class="mt-4">Blog init</h2>
 
-  simulation
-      .nodes(graph.nodes)
-      .on("tick", ticked);
+            <!-- Author -->
+            <p>
+                by
+                <a href="">lrmlll</a>
+            </p>
 
-  simulation.force("link")
-      .links(graph.links);
+            <!-- Date/Time -->
+            <p>Posted on hard coded date value: January 2, 2018 at 11:00 PM</p>
 
-  function ticked() {
-    link
-        .attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+            <hr>
 
-    node
-        .attr("transform", function(d) {
-          return "translate(" + d.x + "," + d.y + ")";
-        })
-  }
-});
+            <!-- Preview Image -->
+            <img class="img-fluid rounded"
+                 src="http://st.motortrend.com/uploads/sites/5/2014/08/2015-Subaru-WRX-STI-Launch-Edition-promo1.jpg?interpolation=lanczos-none&fit=around|660:438"
+                 alt="You know it's a WRX photo">
 
-function dragstarted(d) {
-  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-  d.fx = d.x;
-  d.fy = d.y;
-}
+            <!-- Post Content -->
+            <hr>
+            <p class="lead">By the beginning of Bitcoin bubble, by the dusk of half-life, for the night is dark and full
+                of terrors,
+                I hereby summoned el grande bootstrap&#233 and vowed to bring chaos to la git</p>
 
-function dragged(d) {
-  d.fx = d3.event.x;
-  d.fy = d3.event.y;
-}
+            <p></p>
 
-function dragended(d) {
-  if (!d3.event.active) simulation.alphaTarget(0);
-  d.fx = null;
-  d.fy = null;
-}
+            <p>But yeah the photo is completely irrelevant unless you know what's rex</p>
 
-</script>
-    <h1>Hello World</h1>
-    <p>I'm hosted with GitHub Pages.</p>
+            <blockquote class="blockquote">
+                <p class="mb-0">Regex is, in theoretical computer science and formal language theory,
+                    a sequence of characters that define a search pattern.</p>
+                <footer class="blockquote-footer">It's regex
+                    <cite title="Source Title">not rex you dumb</cite>
+                </footer>
+            </blockquote>
+
+            <p>So I will, disobey the will of First Order, resist the force of the Dark side
+                and scribble over the mask of enemy. Maybe you think none of these make sense,
+                is because you never experienced the fight against insurance companies.
+                They are evil like Candy Crush that actually never crashes. With these being said,
+                It's safe to continue writing rubbish content and eating up all the free bytes.
+                But at least, I gotta quote the zen of Python to lengthen my first post
+                <blockquote class="blockquote">
+            <p class="mb-0">
+                Beautiful is better than ugly.
+                <br/>Explicit is better than implicit.
+                <br/>Simple is better than complex.
+                <br/>Complex is better than complicated.
+                <br/>Flat is better than nested.
+                <br/>Sparse is better than dense.
+                <br/>Readability counts.
+                <br/>Special cases aren't special enough to break the rules.
+                <br/>Although practicality beats purity.
+                <br/>Errors should never pass silently.
+                <br/>Unless explicitly silenced.
+                <br/>In the face of ambiguity, refuse the temptation to guess.
+                <br/>There should be one—and preferably only one—obvious way to do it.
+                <br/>Although that way may not be obvious at first unless you're Dutch.
+                <br/>Now is better than never.
+                <br/>Although never is often better than right now.[5]
+                <br/>If the implementation is hard to explain, it's a bad idea.
+                <br/>If the implementation is easy to explain, it may be a good idea.
+                <br/>Namespaces are one honking great idea—let's do more of those!
+            </p>
+            <footer class="blockquote-footer">Someone named Tim Peters
+            </footer>
+            </blockquote>
+
+            </p>
+            <p></p>
+
+            <hr>
+
+            <!-- Comments Form -->
+            <div class="card my-4">
+                <h5 class="card-header">Leave a Comment:</h5>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Like I care..." rows="2"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Click to donate</button>
+                    </form>
+                    <br/><br/>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+            <!-- Search Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Search</h5>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Null is not empty...">
+                        <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">You fool!</button>
+                </span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+</div>
+
+<footer class="py-5 bg-dark">
+    <div>
+        <p class="m-1 text-center text-white">Copyright &copy; lrmlll 2017</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
 </body>
+
 </html>
