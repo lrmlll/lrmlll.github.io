@@ -2,6 +2,7 @@
 layout: page
 title: Theme Styles
 ---
+Just keeping this default helper doc ...
 
 ## Full Style Test
 
